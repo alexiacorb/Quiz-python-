@@ -1,0 +1,35 @@
+1. What will the following code return?
+
+def func(x, y=[]):
+    y.append(x)
+    return y
+
+print(func(1))
+print(func(2, []))
+print(func(3))
+
+a) [1] [2] [1, 2]
+b) [1] [2] [3]
+c) [1] [2] [1, 3]
+d) [1] [2] [1, 2, 3]
+
+answer : c) 
+explanation : on the first call only the first parameter (x=2) is specified and for the second the default one is used (an empty list []) --> [1] 
+              on the second call we have both parameters 2 and an empty list to which will be added 2   -> [2] 
+              on the third call new list was explicitly given, so the function uses the same default list (which already holds the value added on the first call)   --> [1,3]
+
+2. a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
+
+a) [1, 2, 3, 4]
+b) [1, 2, 3]
+c) [1, 2]
+d) Eroare la rulare
+
+answer: a)
+In Python, lists are mutable objects. The assignment b = a does not create a copy of list a, but makes b a reference to the same list in memory. Thus, any change made to list b will also affect list a, since both variables refer to the same area of ​​memory. We can say that they behave like pointers in object-oriented languages ​​such as c/c++. 
+At the b.append(4) line, element 4 is added to the list referenced by both variables a and b.
+When print(a) is executed, it will display the modified list, which is [1, 2, 3, 4].
+
